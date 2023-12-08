@@ -1,15 +1,16 @@
 import QRCode from 'qrcode'
 
-export function setupQRcode(element: HTMLButtonElement, url: string) {
-    let counter = 0
-    const setCounter = (count: number) => {
-        counter = count
-        element.innerHTML = `count is ${counter}`
+export function setupQRcode(element: HTMLButtonElement) {
+    const generateQRcode = (canvas: HTMLCanvasElement | null) => {
+        const qrCodeInput = document.getElementById('qr-code-input') as HTMLInputElement;
+        console.log(qrCodeInput?.value);
+        const qrCodeString = qrCodeInput?.value;
+        if (canvas && qrCodeString) {
+            QRCode.toCanvas(canvas, qrCodeString, {}).then(() => console.log('sucess')).catch((err: Error) => console.error(err))
+        }
     }
     const canvas = document.getElementById('qr-code-canvas');
-    if (canvas != null) {
-        QRCode.toCanvas(canvas, url, {}).then(() => console.log('sucess')).catch((err: Error) => console.error(err))
-    }
-    element.addEventListener('click', () => setCounter(counter + 1))
-    setCounter(0)
+    element.addEventListener('click', () => {
+        generateQRcode(canvas as HTMLCanvasElement);
+    })
 }

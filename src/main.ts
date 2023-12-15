@@ -1,6 +1,7 @@
 import './style.css'
-import { setupCounter } from './counter.ts'
 import { setupQRcode } from './qr-code.ts'
+
+declare var chrome: any;
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -19,5 +20,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-setupQRcode(document.querySelector<HTMLButtonElement>('#counter')!)
+setupQRcode(document.querySelector<HTMLButtonElement>('#counter')!, chrome)

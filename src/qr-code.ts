@@ -1,6 +1,6 @@
 import QRCode from 'qrcode'
 
-export function setupQRcode(element: HTMLButtonElement) {
+export function setupQRcode(element: HTMLButtonElement, c: any) {
     const generateQRcode = (canvas: HTMLCanvasElement | null) => {
         const qrCodeInput = document.getElementById('qr-code-input') as HTMLInputElement;
         console.log(qrCodeInput?.value);
@@ -12,5 +12,6 @@ export function setupQRcode(element: HTMLButtonElement) {
     const canvas = document.getElementById('qr-code-canvas');
     element.addEventListener('click', () => {
         generateQRcode(canvas as HTMLCanvasElement);
+        console.log(c);
     })
 }

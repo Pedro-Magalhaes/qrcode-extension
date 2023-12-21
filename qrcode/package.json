@@ -1,5 +1,5 @@
 {
-  "name": "qrcode-extension",
+  "name": "qrcode",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,12 +8,14 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "preact": "^10.19.3",
+    "qrcode": "^1.5.3"
+  },
   "devDependencies": {
+    "@preact/preset-vite": "^2.7.0",
     "@types/qrcode": "^1.5.5",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0"
-  },
-  "dependencies": {
-    "qrcode": "^1.5.3"
+    "vite": "^5.0.8"
   }
 }
